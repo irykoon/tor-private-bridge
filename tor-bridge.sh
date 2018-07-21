@@ -18,6 +18,13 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
+echo "Updating server..."
+apt update
+apt full-upgrade -y
+
+echo "Installing dependencies..."
+apt install -y curl
+
 if [ "$#" -eq 3 ]; then # TODO: Argument validation
     IP=$1
     LISTENING_PORT=$2
@@ -31,10 +38,6 @@ else
     echo "Usage: sudo bash $0 IP ListenPort ORPort"
     exit 1
 fi
-
-echo "Updating server..."
-apt update
-apt full-upgrade -y
 
 echo "Adding gpg keys..."
 apt install -y dirmngr
