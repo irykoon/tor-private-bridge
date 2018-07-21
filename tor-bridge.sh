@@ -44,13 +44,13 @@ apt install -y dirmngr
 gpg --recv $TOR_PUBLIC_KEY
 gpg --export $TOR_PUBLIC_KEY | apt-key add -
 
-echo Adding official Tor repositories...
+echo "Adding official Tor repositories..."
 rm -f /etc/apt/sources.list.d/tor.list 2> /dev/null
 rm -f /etc/apt/sources.list.d/tor.list.save 2> /dev/null
 echo "deb http://deb.torproject.org/torproject.org $(lsb_release -cs) main" > /etc/apt/sources.list.d/tor.list
 echo "deb-src http://deb.torproject.org/torproject.org $(lsb_release -cs) main" >> /etc/apt/sources.list.d/tor.list
 
-echo Installing Tor bridge...
+echo "Installing Tor bridge..."
 apt update
 apt install -y tor tor-arm tor-geoipdb deb.torproject.org-keyring obfs4proxy
 service tor stop
@@ -80,15 +80,15 @@ echo
 echo "Your obfs4 address is:"
 OBFS4TEMPLATE=`tail -1 /var/lib/tor/pt_state/obfs4_bridgeline.txt`
 FINGERPRINT0=`cat /var/lib/tor/fingerprint`
-FINGERPRINT0=$(echo $FINGERPRINT0 | cut -d ' ' -f 2-)
+FINGERPRINT0=$(echo "$FINGERPRINT0" | cut -d ' ' -f 2-)
 FINGERPRINT=${FINGERPRINT0#"Xaqron "}
 OBFS4ADDRESS="${OBFS4TEMPLATE/<IP ADDRESS>/$IP}"
 OBFS4ADDRESS="${OBFS4ADDRESS/<PORT>/$LISTENING_PORT}"
 OBFS4ADDRESS="${OBFS4ADDRESS/<FINGERPRINT>/$FINGERPRINT}"
-echo $OBFS4ADDRESS
+echo "$OBFS4ADDRESS"
 echo
 
 echo "Saving obfs4 address to: \"~/obfs4.address\""
 echo "Use obfs4 address with Tor client."
-echo $OBFS4ADDRESS > ~/obfs4.address
+echo "$OBFS4ADDRESS" > ~/obfs4.address
 echo "Done!"
