@@ -78,8 +78,8 @@ sleep 30
 
 echo
 echo "Your obfs4 address is:"
-OBFS4TEMPLATE=`tail -1 /var/lib/tor/pt_state/obfs4_bridgeline.txt`
-FINGERPRINT0=`cat /var/lib/tor/fingerprint`
+OBFS4TEMPLATE=$(tail -1 /var/lib/tor/pt_state/obfs4_bridgeline.txt)
+FINGERPRINT0=$(cat /var/lib/tor/fingerprint)
 FINGERPRINT0=$(echo "$FINGERPRINT0" | cut -d ' ' -f 2-)
 FINGERPRINT=${FINGERPRINT0#"Xaqron "}
 OBFS4ADDRESS="${OBFS4TEMPLATE/<IP ADDRESS>/$IP}"
