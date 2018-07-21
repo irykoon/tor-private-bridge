@@ -3,7 +3,7 @@
 Copy script to your server:
 
 ```bash
-wget https://raw.githubusercontent.com/Xaqron/tor-private-bridge/master/tor-bridge.sh
+wget https://raw.githubusercontent.com/irykoon/tor-private-bridge/master/tor-bridge.sh
 ```
 
 ## Easy installation
