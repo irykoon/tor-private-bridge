@@ -65,6 +65,10 @@ echo "BridgeRelay 1" >> /etc/tor/torrc
 echo "PublishServerDescriptor 0" >> /etc/tor/torrc  # TODO: add an option to let the bridge used by public, which contributes to the Tor network
 echo "ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy" >> /etc/tor/torrc
 echo "ServerTransportListenAddr obfs4 0.0.0.0:$LISTENING_PORT" >> /etc/tor/torrc
+# TODO: nickname and contact info should be optionally available when
+# configuring.  Mimialist installation that asks fewest question
+# should alway be the default option, we asks more questions only when
+# the user choose to use advanced mode.
 
 echo "Setting firewall rules..."
 ufw allow $LISTENING_PORT
