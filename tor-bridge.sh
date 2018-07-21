@@ -80,6 +80,16 @@ service tor start
 echo "Tor starts after 30 seconds. Please wait..."
 sleep 30
 
+## Thanks to: https://github.com/coldhakca/tor-relay-bootstrap
+# configure automatic updates
+echo "Configuring unattended upgrades"
+apt-get install -y unattended-upgrades apt-listchanges
+# Another way is to copy a conf file to the desired place. However, it
+# will lose the simplicity of installing with a single wget command.
+echo "APT::Periodic::Update-Package-Lists \"1\";" > /etc/apt/apt.conf.d/20auto-upgrades
+echo "APT::Periodic::Unattended-Upgrade \"1\";" > /etc/apt/apt.conf.d/20auto-upgrades
+service unattended-upgrades restart
+
 echo
 echo "Your obfs4 address is:"
 OBFS4TEMPLATE=$(tail -1 /var/lib/tor/pt_state/obfs4_bridgeline.txt)
