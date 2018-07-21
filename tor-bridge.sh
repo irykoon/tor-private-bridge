@@ -53,7 +53,7 @@ echo "deb-src http://deb.torproject.org/torproject.org $(lsb_release -cs) main" 
 
 echo Installing Tor bridge...
 apt update
-apt install -y tor tor-geoipdb deb.torproject.org-keyring obfs4proxy
+apt install -y tor tor-arm tor-geoipdb deb.torproject.org-keyring obfs4proxy
 service tor stop
 
 echo "Backup made at \"/etc/tor/torrc.bak\", Writing Tor config..."
