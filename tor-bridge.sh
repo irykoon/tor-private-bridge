@@ -3,10 +3,10 @@
 #=================================================
 #title           :Tor bridge installer
 #description     :Installs a private Tor bridge
-#author	    	 :Xaqron
+#author	    	 :Xaqron, irykoon
 #date            :20180416
 #version         :1.1.0
-#license         :MIT    
+#license         :MIT
 #=================================================
 
 TOR_PUBLIC_KEY="A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89"
