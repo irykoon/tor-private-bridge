@@ -62,7 +62,7 @@ echo "ORPort $OR_PORT" >> /etc/tor/torrc
 echo "ExtORPort auto" >> /etc/tor/torrc
 echo "ExitPolicy reject *:*" >> /etc/tor/torrc
 echo "BridgeRelay 1" >> /etc/tor/torrc
-echo "PublishServerDescriptor 0" >> /etc/tor/torrc
+echo "PublishServerDescriptor 0" >> /etc/tor/torrc  # TODO: add an option to let the bridge used by public, which contributes to the Tor network
 echo "ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy" >> /etc/tor/torrc
 echo "ServerTransportListenAddr obfs4 0.0.0.0:$LISTENING_PORT" >> /etc/tor/torrc
 
