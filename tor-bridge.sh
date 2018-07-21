@@ -23,7 +23,7 @@ apt update
 apt full-upgrade -y
 
 echo "Installing dependencies..."
-apt install -y curl ufw
+apt install -y curl ufw gpg
 
 if [ "$#" -eq 3 ]; then # TODO: Argument validation
     IP=$1
