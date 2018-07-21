@@ -41,7 +41,8 @@ fi
 
 echo "Adding gpg keys..."
 apt install -y dirmngr
-gpg --keyserver keys.gnupg.net --recv $TOR_PUBLIC_KEY
+#gpg --keyserver keys.gnupg.net --recv $TOR_PUBLIC_KEY
+gpg --recv $TOR_PUBLIC_KEY
 gpg --export $TOR_PUBLIC_KEY | apt-key add -
 
 echo Adding official Tor repositories...
